@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>南京农业大学博士申请复试汇报</title>
-    <!-- TailwindCSS 通过CDN引入 -->
+    <title>燃气客服智能助手 - 服务体验升级方案</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入Font Awesome图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        // 配置Tailwind主题
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -31,439 +28,407 @@
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
                     },
-                }
-            }
+                },
+            },
         }
     </script>
     <style type="text/css">
-        /* 自定义样式 */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
-        /* 平滑滚动 */
-        html {
-            scroll-behavior: smooth;
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
         }
         
-        /* 微交互效果 */
-        .hover-scale {
-            transition: transform 0.2s ease-in-out;
-        }
-        .hover-scale:hover {
-            transform: scale(1.03);
-        }
-        
-        /* 淡入动画 */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .fade-in {
-            animation: fadeIn 0.6s ease-out forwards;
+        .card-hover {
+            transition: all 0.3s ease;
         }
         
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-        .delay-500 { animation-delay: 0.5s; }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .btn-hover {
+            transition: all 0.2s ease;
+        }
+        
+        .btn-hover:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-    <!-- 主导航栏 -->
-    <nav class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+<body class="font-sans bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- 导航栏 -->
+    <nav class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <img src="https://www.njau.edu.cn/__local/E/1A/0A/0ADFB21993A1B1E1A4C8F06B8C5_AE1B5509_1C6F2.jpg" alt="南京农业大学校徽" class="h-8 w-auto mr-3">
-                    <span class="text-lg font-semibold">南京农业大学博士申请复试汇报</span>
+                    <i class="fas fa-fire text-primary-600 dark:text-primary-400 text-2xl mr-2"></i>
+                    <span class="font-bold text-xl">燃气客服智能助手</span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <!-- 深色/浅色模式切换按钮 -->
-                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none">
-                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
-                        <i class="fas fa-moon text-blue-300 hidden dark:block"></i>
+                    <a href="#background" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium">背景</a>
+                    <a href="#solution" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium">解决方案</a>
+                    <a href="#implementation" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium">实施计划</a>
+                    <a href="#value" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium">商业价值</a>
+                    <a href="#demo" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md text-sm font-medium">Demo</a>
+                    <button id="theme-toggle" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
                     </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- 主要内容区域 -->
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- 封面部分 -->
-        <section class="mb-16 text-center fade-in">
-            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-                <div class="p-8">
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4 text-primary-700 dark:text-primary-400">南京农业大学</h1>
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">博士研究生申请-审核制复试汇报</h2>
-                    <div class="flex justify-center mb-6">
-                        <div class="h-1 w-24 bg-primary-500 rounded"></div>
-                    </div>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">申请人: [申请人姓名]</p>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">申请学院: [学院名称]</p>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">申请专业: [专业名称]</p>
-                    <p class="text-lg text-gray-600 dark:text-gray-300">报告日期: [YYYY年MM月DD日]</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 个人基本情况 -->
-        <section class="mb-16 fade-in delay-100">
-            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-                <div class="p-8">
-                    <h2 class="text-2xl font-bold mb-6 flex items-center text-primary-700 dark:text-primary-400">
-                        <i class="fas fa-user-graduate mr-3"></i>个人基本情况
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="hover-scale">
-                            <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">教育背景</h3>
-                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                                <li><span class="font-medium">本科:</span> [大学名称] - [专业] ([年份])</li>
-                                <li><span class="font-medium">硕士:</span> [大学名称] - [专业] ([年份])</li>
-                                <li><span class="font-medium">其他学历:</span> [如适用]</li>
-                            </ul>
-                        </div>
-                        <div class="hover-scale">
-                            <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">研究方向</h3>
-                            <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                                <li>[研究方向1]</li>
-                                <li>[研究方向2]</li>
-                                <li>[研究方向3]</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mt-6 hover-scale">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">获奖情况</h3>
-                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
-                            <li>[奖项1] - [颁发机构] ([年份])</li>
-                            <li>[奖项2] - [颁发机构] ([年份])</li>
-                            <li>[奖项3] - [颁发机构] ([年份])</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 科研成果 -->
-        <section class="mb-16 fade-in delay-200">
-            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-                <div class="p-8">
-                    <h2 class="text-2xl font-bold mb-6 flex items-center text-primary-700 dark:text-primary-400">
-                        <i class="fas fa-flask mr-3"></i>科研成果
-                    </h2>
-                    
-                    <!-- 发表论文 -->
-                    <div class="mb-8 hover-scale">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200 flex items-center">
-                            <i class="fas fa-file-alt mr-2"></i>发表论文
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">[论文标题1]</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">作者: [作者列表]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">期刊: [期刊名称], [年份], [卷(期): 页码]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">影响因子: [IF值]</p>
-                            </div>
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">[论文标题2]</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">作者: [作者列表]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">期刊: [期刊名称], [年份], [卷(期): 页码]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">影响因子: [IF值]</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 专利 -->
-                    <div class="mb-8 hover-scale">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200 flex items-center">
-                            <i class="fas fa-lightbulb mr-2"></i>专利
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">[专利名称1]</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">专利号: [专利号]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">发明人: [发明人列表]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">授权日期: [日期]</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 项目经历 -->
-                    <div class="hover-scale">
-                        <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200 flex items-center">
-                            <i class="fas fa-project-diagram mr-2"></i>项目经历
-                        </h3>
-                        <div class="space-y-4">
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">[项目名称1]</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">项目来源: [来源]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">起止时间: [开始时间] - [结束时间]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">担任角色: [角色]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">主要工作: [工作内容简述]</p>
-                            </div>
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">[项目名称2]</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">项目来源: [来源]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">起止时间: [开始时间] - [结束时间]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">担任角色: [角色]</p>
-                                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">主要工作: [工作内容简述]</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 硕士期间研究工作 -->
-        <section class="mb-16 fade-in delay-300">
-            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-                <div class="p-8">
-                    <h2 class="text-2xl font-bold mb-6 flex items-center text-primary-700 dark:text-primary-400">
-                        <i class="fas fa-microscope mr-3"></i>硕士期间研究工作
-                    </h2>
-                    
-                    <!-- 研究背景 -->
-                    <div class="mb-8 hover-scale">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">研究背景</h3>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            [在此描述硕士期间研究的背景和意义，包括该领域的研究现状、存在的问题以及您的研究如何解决这些问题]
-                        </p>
-                    </div>
-                    
-                    <!-- 研究内容 -->
-                    <div class="mb-8 hover-scale">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">研究内容</h3>
-                        <div class="space-y-4">
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">研究目标</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[描述研究目标]</p>
-                            </div>
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">研究方法</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[描述研究方法]</p>
-                            </div>
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">主要结果</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[描述研究的主要结果]</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 创新点 -->
-                    <div class="hover-scale">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">创新点</h3>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-                            <li>[创新点1]</li>
-                            <li>[创新点2]</li>
-                            <li>[创新点3]</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 博士期间研究计划 -->
-        <section class="mb-16 fade-in delay-400">
-            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-                <div class="p-8">
-                    <h2 class="text-2xl font-bold mb-6 flex items-center text-primary-700 dark:text-primary-400">
-                        <i class="fas fa-tasks mr-3"></i>博士期间研究计划
-                    </h2>
-                    
-                    <!-- 研究方向 -->
-                    <div class="mb-8 hover-scale">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">研究方向</h3>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            [描述博士期间计划研究的方向，以及该方向的学术意义和应用价值]
-                        </p>
-                    </div>
-                    
-                    <!-- 研究内容与目标 -->
-                    <div class="mb-8 hover-scale">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">研究内容与目标</h3>
-                        <div class="space-y-4">
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">第一年</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[第一年的研究内容和目标]</p>
-                            </div>
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">第二年</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[第二年的研究内容和目标]</p>
-                            </div>
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">第三年</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[第三年的研究内容和目标]</p>
-                            </div>
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">第四年</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[第四年的研究内容和目标]</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- 预期成果 -->
-                    <div class="hover-scale">
-                        <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-gray-200">预期成果</h3>
-                        <ul class="list-disc pl-5 space-y-2 text-gray-600 dark:text-gray-300">
-                            <li>[预期成果1，如发表SCI论文数量]</li>
-                            <li>[预期成果2，如申请专利数量]</li>
-                            <li>[预期成果3，如参与项目情况]</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 为什么选择南农 -->
-        <section class="mb-16 fade-in delay-500">
-            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-                <div class="p-8">
-                    <h2 class="text-2xl font-bold mb-6 flex items-center text-primary-700 dark:text-primary-400">
-                        <i class="fas fa-heart mr-3"></i>为什么选择南京农业大学
-                    </h2>
-                    
-                    <div class="space-y-6 hover-scale">
-                        <p class="text-gray-600 dark:text-gray-300">
-                            [在此描述为什么选择南京农业大学攻读博士学位，可以从以下几个方面阐述：]
-                        </p>
-                        
-                        <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                            <h4 class="font-medium text-primary-600 dark:text-primary-400">学校优势</h4>
-                            <p class="text-gray-600 dark:text-gray-300 mt-2">[描述南京农业大学在您研究领域的优势和特色]</p>
-                        </div>
-                        
-                        <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                            <h4 class="font-medium text-primary-600 dark:text-primary-400">导师团队</h4>
-                            <p class="text-gray-600 dark:text-gray-300 mt-2">[描述您心仪的导师团队的研究方向和成就]</p>
-                        </div>
-                        
-                        <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                            <h4 class="font-medium text-primary-600 dark:text-primary-400">个人发展</h4>
-                            <p class="text-gray-600 dark:text-gray-300 mt-2">[描述在南京农业大学攻读博士对您个人学术和职业发展的意义]</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 自我评价 -->
-        <section class="mb-16 fade-in delay-500">
-            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-                <div class="p-8">
-                    <h2 class="text-2xl font-bold mb-6 flex items-center text-primary-700 dark:text-primary-400">
-                        <i class="fas fa-user-check mr-3"></i>自我评价
-                    </h2>
-                    
-                    <div class="space-y-6 hover-scale">
-                        <p class="text-gray-600 dark:text-gray-300">
-                            [在此进行自我评价，包括学术能力、研究潜力、个人特质等方面]
-                        </p>
-                        
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">学术能力</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[描述您的学术能力和研究素养]</p>
-                            </div>
-                            
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">创新能力</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[描述您的创新思维和解决问题的能力]</p>
-                            </div>
-                            
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">团队协作</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[描述您的团队协作能力和沟通技巧]</p>
-                            </div>
-                            
-                            <div class="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-                                <h4 class="font-medium text-primary-600 dark:text-primary-400">抗压能力</h4>
-                                <p class="text-gray-600 dark:text-gray-300 mt-2">[描述您面对挑战和压力的态度和能力]</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 致谢 -->
-        <section class="mb-16 fade-in delay-500">
-            <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-                <div class="p-8 text-center">
-                    <h2 class="text-2xl font-bold mb-6 text-primary-700 dark:text-primary-400">
-                        <i class="fas fa-hands-helping mr-3"></i>致谢
-                    </h2>
-                    
-                    <p class="text-gray-600 dark:text-gray-300 mb-4 hover-scale">
-                        感谢各位老师的聆听与指导！
-                    </p>
-                    
-                    <div class="mt-8">
-                        <p class="text-lg font-medium text-gray-800 dark:text-gray-200 hover-scale">敬请批评指正</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 页脚 -->
-    <footer class="bg-gray-100 dark:bg-gray-800 py-8 border-t border-gray-200 dark:border-gray-700">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="mb-4 md:mb-0">
-                        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">作者信息</h3>
-                        <p class="text-gray-600 dark:text-gray-300">[作者姓名]</p>
-                        <div class="flex space-x-3 mt-2">
-                            <a href="https://twitter.com/username" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm">© 2023 版权所有</p>
-                    </div>
-                </div>
+    <!-- 英雄区 -->
+    <header class="bg-gradient-to-r from-primary-600 to-blue-700 dark:from-primary-800 dark:to-blue-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white mb-6 fade-in">AI 驱动的客服智能助理系统</h1>
+            <p class="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto fade-in">燃气用户服务体验升级方案</p>
+            <div class="mt-10 fade-in">
+                <a href="#solution" class="btn-hover inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-white hover:bg-gray-50 shadow-lg">
+                    了解更多
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
-    </footer>
+    </header>
 
-    <!-- JavaScript -->
-    <script>
-        // 深色/浅色模式切换
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        
-        // 检查系统偏好
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-        }
-        
-        // 检查本地存储中的主题设置
-        if (localStorage.getItem('color-theme') === 'dark' || 
-            (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-        
-        // 切换主题
-        themeToggleBtn.addEventListener('click', function() {
-            // 切换类
-            document.documentElement.classList.toggle('dark');
+    <!-- 主要内容 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- 背景与痛点 -->
+        <section id="background" class="mb-20 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">背景与痛点分析</h2>
+                <div class="mt-2 h-1 w-20 bg-primary-500 mx-auto"></div>
+            </div>
             
-            // 更新本地存储
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('color-theme', 'dark');
-            } else {
-                localStorage.setItem('color-theme', 'light');
-            }
-        });
-    </script>
-</body>
-</html>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">背景</h3>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    随着燃气用户数量的持续增长，用户在使用过程中产生的咨询、报修、投诉、建议等问题日益增多。传统热线客服模式面临高人工成本、响应效率低、用户满意度不稳定等挑战。
+                </p>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">核心痛点</h3>
+                <ul class="space-y-4 text-gray-700 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-3"></i>
+                        <span><strong>服务响应慢，分类处理效率低：</strong> 人工客服在话务高峰期无法及时应答，问题分类依赖人工判断，处理周期长。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-3"></i>
+                        <span><strong>知识库利用率低：</strong> 常见问题重复咨询，但未能实现自动响应与知识复用。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-3"></i>
+                        <span><strong>信息收集不全，反馈机制缺失：</strong> 报修过程缺乏必要字段填报指导，用户反馈闭环率低。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-exclamation-circle text-red-500 mt-1 mr-3"></i>
+                        <span><strong>任务流转缺乏标准：</strong> 问题从客服到维修调度缺乏统一流程支撑，信息衔接断点多。</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 解决方案 -->
+        <section id="solution" class="mb-20 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">解决方案：基于 Coze 的 AI 客服智能体</h2>
+                <div class="mt-2 h-1 w-20 bg-primary-500 mx-auto"></div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">目标</h3>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    构建一个具备"意图识别 + 知识库问答 + 智能收集 + 多角色任务协同 + 反馈回流"的智能客服系统，实现对用户问题的快速、准确、高效闭环处理，全面提升客户服务质量与满意度。
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full">
+                            <i class="fas fa-brain text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h4 class="ml-4 text-lg font-semibold text-gray-800 dark:text-gray-200">意图识别模块</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        通过自然语言处理模型理解用户语义，识别用户意图（如报修、投诉、建议等）。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full">
+                            <i class="fas fa-database text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h4 class="ml-4 text-lg font-semibold text-gray-800 dark:text-gray-200">知识库检索系统</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        调用内置知识库快速匹配FAQ类问题，支持业务规则设定。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full">
+                            <i class="fas fa-clipboard-list text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h4 class="ml-4 text-lg font-semibold text-gray-800 dark:text-gray-200">信息收集引导</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        基于对话上下文动态生成收集表单，引导用户完善问题细节。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full">
+                            <i class="fas fa-tasks text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h4 class="ml-4 text-lg font-semibold text-gray-800 dark:text-gray-200">任务流转与调度</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        客服机器人根据意图与内容自动将任务转交至后台工单系统或人工客服。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary-100 dark:bg-primary-900 p-3 rounded-full">
+                            <i class="fas fa-sync-alt text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h4 class="ml-4 text-lg font-semibold text-gray-800 dark:text-gray-200">服务反馈闭环</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        用户可查询工单状态，提交反馈，实现闭环管理。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 实施计划 -->
+        <section id="implementation" class="mb-20 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">实施计划与落地路径</h2>
+                <div class="mt-2 h-1 w-20 bg-primary-500 mx-auto"></div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-200">3 个月部署路径</h3>
+                
+                <div class="relative">
+                    <!-- 时间线 -->
+                    <div class="absolute left-0 top-0 h-full w-0.5 bg-primary-200 dark:bg-primary-800 ml-6"></div>
+                    
+                    <!-- 第一个月 -->
+                    <div class="relative pl-16 pb-8">
+                        <div class="absolute left-0 top-0 bg-primary-500 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold">
+                            1月
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">语料采集与知识库构建</h4>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                完成语料采集，构建知识库与对话流程，集成 NLP 模型进行训练。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 第二个月 -->
+                    <div class="relative pl-16 pb-8">
+                        <div class="absolute left-0 top-0 bg-primary-500 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold">
+                            2月
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">平台部署与系统集成</h4>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                部署 Coze 平台，构建与公司内部系统的数据对接通道，联调测试。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 第三个月 -->
+                    <div class="relative pl-16">
+                        <div class="absolute left-0 top-0 bg-primary-500 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold">
+                            3月
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">全渠道接入与试点应用</h4>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                完成全渠道接入，试点应用，形成初步评估报告。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">资源协同</h3>
+                <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>客服中心提供历史对话数据与流程定义</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>技术团队负责模型训练与配置</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        <span>客户体验部优化交互质量</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 商业价值 -->
+        <section id="value" class="mb-20 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">商业价值与创新点</h2>
+                <div class="mt-2 h-1 w-20 bg-primary-500 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 dark:bg-green-900 p-3 rounded-full">
+                            <i class="fas fa-tachometer-alt text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <h4 class="ml-4 text-lg font-semibold text-gray-800 dark:text-gray-200">服务效率提升</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        通过 AI 自动初筛与知识库推送，减少客服首答时间约 70%。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-full">
+                            <i class="fas fa-sync text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <h4 class="ml-4 text-lg font-semibold text-gray-800 dark:text-gray-200">服务闭环优化</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        引导收集关键信息，提高工单派发成功率与处理准确性。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 dark:bg-red-900 p-3 rounded-full">
+                            <i class="fas fa-arrow-down text-red-600 dark:text-red-400"></i>
+                        </div>
+                        <h4 class="ml-4 text-lg font-semibold text-gray-800 dark:text-gray-200">投诉率降低</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        通过高效处理，提高用户信任度，降低恶性投诉。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-full">
+                            <i class="fas fa-copy text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h4 class="ml-4 text-lg font-semibold text-gray-800 dark:text-gray-200">系统可复制性强</h4>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        可拓展至其他公共服务场景。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">创新亮点</h3>
+                <ul class="space-y-4 text-gray-700 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 mt-1 mr-3"></i>
+                        <span><strong>对话驱动的任务流转模型：</strong> 实现从"说"到"做"的闭环服务。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 mt-1 mr-3"></i>
+                        <span><strong>轻量部署，低成本可扩展：</strong> 基于 Coze 平台，无需复杂部署快速上线。</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-lightbulb text-yellow-500 mt-1 mr-3"></i>
+                        <span><strong>服务数据智能回流：</strong> 用于改进服务质量和策略。</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Demo展示 -->
+        <section id="demo" class="mb-20 fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Demo 展示</h2>
+                <div class="mt-2 h-1 w-20 bg-primary-500 mx-auto"></div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">智能体链接</h3>
+                <div class="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <a href="https://www.coze.cn/store/agent/7497278948372987931?bot_id=true" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline flex items-center btn-hover">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        访问 Coze 平台上的燃气客服智能助手
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">智能体页面</h3>
+                    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 h-64 flex items-center justify-center">
+                        <div class="text-center">
+                            <img src="https://files.catbox.moe/iedy04.png" alt="智能体功能演示"
+                                class="max-h-56 object-contain mx-auto rounded-lg shadow-md transform transition-transform duration-300 hover:scale-110" />
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">工单页面</h3>
+                    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 h-64 flex items-center justify-center">
+                        <div class="text-center">
+                            <img src="https://files.catbox.moe/hxut17.png" alt="工单管理界面演示"
+                                class="max-h-56 object-contain mx-auto rounded-lg shadow-md transform transition-transform duration-300 hover:scale-110" />
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:col-span-2">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">维修工单微信推送页面</h3>
+                    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4 h-64 flex items-center justify-center">
+                        <div class="text-center">
+                            <img src="https://files.catbox.moe/8pbwuh.png" alt="微信推送界面演示"
+                                class="max-h-56 object-contain mx-auto rounded-lg shadow-md transform transition-transform duration-300 hover:scale-110" />
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-100 dark:bg-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-fire text-primary-600 dark:text-primary-400 text-2xl mr-2"></i>
+                        <span class="font-bold text-xl text-gray-900 dark:text-white">燃气客服智能助手</span>
+                    </div>
+                    <p class="mt-2 text-gray-600 dark:text-gray-400">AI 驱动的客服智能助理系统</p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="text-gray-700 dark:text-gray-300 mb-2">
+                        <span class="font-semibold">作者姓名:</span> 赵鹏飞
+                    </div>
