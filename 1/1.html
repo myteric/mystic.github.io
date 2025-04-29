@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 驱动的燃气客服智能助理系统 - 作品集</title>
+    <!-- TailwindCSS 3.0+ CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        // 配置Tailwind主题
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        /* 自定义样式 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 卡片悬停效果 */
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* 按钮悬停效果 */
+        .hover-button {
+            transition: all 0.2s ease;
+        }
+        
+        .hover-button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* 内容区块淡入动画 */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- 导航栏 -->
+    <nav class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fas fa-fire text-primary-600 dark:text-primary-400 text-2xl mr-2"></i>
+                    <span class="font-bold text-xl">燃气智能助理</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部区域 -->
+    <header class="bg-gradient-to-r from-primary-600 to-blue-700 dark:from-primary-800 dark:to-blue-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+            <h1 class="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl animate-fade-in">
+                AI 驱动的燃气客服智能助理系统
+            </h1>
+            <p class="mt-6 max-w-3xl mx-auto text-xl text-indigo-100">
+                基于 Coze 平台打造的新一代智能客服解决方案
+            </p>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- 项目背景与挑战 -->
+        <section id="background" class="mb-20 fade-in-section">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-lightbulb text-primary-500 text-2xl mr-3"></i>
+                <h2 class="text-3xl font-bold">项目背景与挑战</h2>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover-card">
+                <p class="text-lg mb-4">随着燃气用户数量的持续增长，用户在使用过程中产生的咨询、报修、投诉、建议等问题日益增多。传统热线客服模式面临以下挑战：</p>
+                <ul class="space-y-4 ml-6 list-disc">
+                    <li class="text-gray-700 dark:text-gray-300">
+                        <span class="font-medium text-gray-900 dark:text-white">服务响应慢，分类处理效率低：</span>
+                        人工客服在话务高峰期无法及时应答，问题分类依赖人工判断，处理周期长。
+                    </li>
+                    <li class="text-gray-700 dark:text-gray-300">
+                        <span class="font-medium text-gray-900 dark:text-white">知识库利用率低：</span>
+                        常见问题重复咨询，但未能实现自动响应与知识复用。
+                    </li>
+                    <li class="text-gray-700 dark:text-gray-300">
+                        <span class="font-medium text-gray-900 dark:text-white">信息收集不全，反馈机制缺失：</span>
+                        报修过程缺乏必要字段填报指导，用户反馈闭环率低。
+                    </li>
+                    <li class="text-gray-700 dark:text-gray-300">
+                        <span class="font-medium text-gray-900 dark:text-white">任务流转缺乏标准：</span>
+                        问题从客服到维修调度缺乏统一流程支撑，信息衔接断点多。
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 设计逻辑与系统架构 -->
+        <section id="architecture" class="mb-20 fade-in-section">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-sitemap text-primary-500 text-2xl mr-3"></i>
+                <h2 class="text-3xl font-bold">设计逻辑与系统架构</h2>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover-card">
+                <p class="text-lg mb-4">为解决上述问题，我基于 Coze 平台构建了一个集成多项功能的智能客服系统，主要包括：</p>
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-brain text-primary-500 mr-2"></i>
+                            <h3 class="font-semibold text-xl">意图识别模块</h3>
+                        </div>
+                        <p>通过自然语言处理模型理解用户语义，识别用户意图（如报修、投诉、建议等）。</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-database text-primary-500 mr-2"></i>
+                            <h3 class="font-semibold text-xl">知识库检索系统</h3>
+                        </div>
+                        <p>调用内置知识库快速匹配FAQ类问题，支持业务规则设定。</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-clipboard-list text-primary-500 mr-2"></i>
+                            <h3 class="font-semibold text-xl">信息收集引导</h3>
+                        </div>
+                        <p>基于对话上下文动态生成收集表单，引导用户完善问题细节。</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-tasks text-primary-500 mr-2"></i>
+                            <h3 class="font-semibold text-xl">任务流转与调度</h3>
+                        </div>
+                        <p>客服机器人根据意图与内容自动将任务转交至后台工单系统或人工客服。</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600 md:col-span-2">
+                        <div class="flex items-center mb-3">
+                            <i class="fas fa-sync-alt text-primary-500 mr-2"></i>
+                            <h3 class="font-semibold text-xl">服务反馈闭环</h3>
+                        </div>
+                        <p>用户可查询工单状态，提交反馈，实现闭环管理。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 应用场景与用户体验 -->
+        <section id="scenarios" class="mb-20 fade-in-section">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-user-check text-primary-500 text-2xl mr-3"></i>
+                <h2 class="text-3xl font-bold">应用场景与用户体验</h2>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover-card">
+                <p class="text-lg mb-6">该系统适用于以下典型场景：</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="relative overflow-hidden rounded-lg shadow-md hover-card">
+                        <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-primary-500 opacity-90"></div>
+                        <div class="relative p-6 text-white">
+                            <i class="fas fa-tools text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">报修登记</h3>
+                            <p>用户通过语音或文本报修，系统引导填写必要信息并生成工单。</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-md hover-card">
+                        <div class="absolute inset-0 bg-gradient-to-r from-green-500 to-teal-500 opacity-90"></div>
+                        <div class="relative p-6 text-white">
+                            <i class="fas fa-search text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">故障查询</h3>
+                            <p>用户查询工单处理进度，系统实时反馈状态。</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-md hover-card">
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 opacity-90"></div>
+                        <div class="relative p-6 text-white">
+                            <i class="fas fa-question-circle text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">常见问题解答</h3>
+                            <p>系统自动回答用户关于燃气使用、安全、费用等方面的常见问题。</p>
+                        </div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-lg shadow-md hover-card">
+                        <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-pink-500 opacity-90"></div>
+                        <div class="relative p-6 text-white">
+                            <i class="fas fa-comment-alt text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold mb-2">投诉与建议收集</h3>
+                            <p>系统记录用户的投诉与建议，并转交相关部门处理。</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-lg mt-6">通过这些功能，用户可以获得更加便捷、高效的服务体验。</p>
+            </div>
+        </section>
+
+        <!-- 实施路径与阶段成果 -->
+        <section id="implementation" class="mb-20 fade-in-section">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-road text-primary-500 text-2xl mr-3"></i>
+                <h2 class="text-3xl font-bold">实施路径与阶段成果</h2>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover-card">
+                <p class="text-lg mb-6">我计划在三个月内完成系统的部署和上线：</p>
+                <div class="relative">
+                    <!-- 时间线 -->
+                    <div class="absolute left-0 inset-y-0 w-0.5 bg-primary-200 dark:bg-primary-900 ml-6"></div>
+                    
+                    <!-- 第一个月 -->
+                    <div class="relative pl-16 pb-10">
+                        <div class="absolute left-0 mt-1.5 rounded-full bg-primary-500 w-12 h-12 flex items-center justify-center text-white font-bold">
+                            1月
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600">
+                            <h3 class="font-semibold text-xl mb-2">数据准备与模型训练</h3>
+                            <p>完成语料采集，构建知识库与对话流程，集成 NLP 模型进行训练。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 第二个月 -->
+                    <div class="relative pl-16 pb-10">
+                        <div class="absolute left-0 mt-1.5 rounded-full bg-primary-500 w-12 h-12 flex items-center justify-center text-white font-bold">
+                            2月
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600">
+                            <h3 class="font-semibold text-xl mb-2">平台部署与系统集成</h3>
+                            <p>部署 Coze 平台，构建与公司内部系统的数据对接通道，联调测试。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 第三个月 -->
+                    <div class="relative pl-16">
+                        <div class="absolute left-0 mt-1.5 rounded-full bg-primary-500 w-12 h-12 flex items-center justify-center text-white font-bold">
+                            3月
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-5 rounded-lg border border-gray-200 dark:border-gray-600">
+                            <h3 class="font-semibold text-xl mb-2">全渠道接入与试点应用</h3>
+                            <p>完成全渠道接入，试点应用，形成初步评估报告。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 创新亮点与商业价值 -->
+        <section id="innovation" class="mb-20 fade-in-section">
+            <div class="flex items-center mb-6">
+                <i class="fas fa-lightbulb text-primary-500 text-2xl mr-3"></i>
+                <h2 class="text-3xl font-bold">创新亮点与商业价值</h2>
+            </div>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 hover-card">
+                <h3 class="text-2xl font-semibold mb-6">💡 创新点：</h3>
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-blue-50 dark:bg-blue-900/30 p-6 rounded-lg border border-blue-100 dark:border-blue-800">
+                        <h4 class="font-bold text-lg mb-3">对话驱动的任务流转模型</h4>
+                        <p>实现从"说"到"做"的闭环服务。</p>
+                    </div>
+                    <div class="bg-green-50 dark:bg-green-900/30 p-6 rounded-lg border border-green-100 dark:border-green-800">
+                        <h4 class="font-bold text-lg mb-3">轻量部署、低门槛上线</h4>
+                        <p>基于 Coze 平台，即开即用，成本低，效率高。</p>
+                    </div>
+                    <div class="bg-purple-50 dark:bg-purple-900/30 p-6 rounded-lg border border-purple-100 dark:border-purple-800">
+                        <h4 class="font-bold text-lg mb-3">服务数据智能回流</h4>
+                        <p>支持回访评价、故障归因与策略优化。</p>
+                    </div>
+                </div>
+                
+                <h3 class="text-2xl font-semibold mb-6">🎤 总结发言：</h3>
+                <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg border-l-4 border-primary-500">
+                    <p class="mb-4">通过本项目，我实现了从传统热线客服向 AI 智能化服务的转型升级。</p>
+                    <p class="mb-4">Coze 平台提供了高效、灵活的开发环境，使我以低成本快速落地了面向用户的语音智能客服系统。</p>
+                    <p>未来，我将继续扩展场景，打通派工系统与回访系统，打造真正"端到端"的服务闭环。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚区域 -->
+    <footer class="bg-gray-100 dark:bg-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">作者信息</h3>
+                    <p class="text-gray-600 dark:text-gray-400">作者姓名: 赵鹏飞</p>
+                    <p class="text-gray-600 dark:text-gray-400">常州新奥燃气公司客服维修部门</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="https://twitter.com/author" target="_blank" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
+                <p class="text-gray-500 dark:text-gray-400">© 2025 AI 驱动的燃气客服智能助理系统. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 深色/浅色模式切换
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // 检查系统偏好
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        // 切换主题
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+        
+        // 滚动动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeSections = document.querySelectorAll('.fade-in-section');
+            
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeSections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
